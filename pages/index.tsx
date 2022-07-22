@@ -17,14 +17,17 @@ const Home: NextPage = () => {
         // for init render
         dispatch(getBTCPrice());
 
-        // const interval = setInterval(() => {
-        //     dispatch(getBTCPrice());
-        // }, 10000);
-        // return () => clearInterval(interval);
+        const interval = setInterval(() => {
+            dispatch(getBTCPrice());
+        }, 10 * 1000);
+        return () => clearInterval(interval);
     }, [dispatch]);
 
     return (
         <>
+            <Head>
+                <title>Tokens</title>
+            </Head>
             <h1>Tokens price</h1>
             <div className={styled.wrapp}>
                 <Image src="/btc.svg" width={48} height={48} />

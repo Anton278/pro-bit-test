@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { InitState } from "./types";
 import { getBTCPrice } from "../asyncActions";
 
@@ -10,11 +10,6 @@ const initialState: InitState = {
 const tokens = createSlice({
     name: "tokens",
     initialState,
-    // reducers: {
-    //     setBTCPrice(state, action: PayloadAction<number>) {
-    //         state.BTCPrice = action.payload;
-    //     },
-    // },
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(getBTCPrice.fulfilled, (state, action) => {
